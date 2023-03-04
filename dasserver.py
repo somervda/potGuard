@@ -1,4 +1,5 @@
 import uasyncio
+import micropython
 import sys
 from microdot_asyncio import Microdot
 
@@ -35,6 +36,7 @@ def start_server():
         print("Connected! IP Address = " + wlan.ifconfig()[0])
         # setup webserver
         print('Starting microdot app')
+        print(micropython.mem_info())
         app.run(port=80)
     except:
         app.shutdown()
